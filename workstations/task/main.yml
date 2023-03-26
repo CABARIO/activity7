@@ -1,0 +1,18 @@
+---
+
+- hosts: workstation
+  become: true
+  tasks:
+
+  -  name: install unzip
+     package:
+       name: unzip
+
+  -  name: install terraform
+     unarchive:
+       src: https://releases.hashicorp.com/terraform/0.12.28/terraform_0.12.28>
+       dest: /usr/local/bin
+       remote_src: yes
+       mode: 0755
+       owner: root
+       group: root
